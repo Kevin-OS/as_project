@@ -1,4 +1,4 @@
 #Directory created by PyCharm
 .idea
 #Another directory created by PyCharm
-exchange_rates/exchange_rates/spiders/__pycache__/
+exchange_rates/exchange_rates/spiders/__pycache__/*
