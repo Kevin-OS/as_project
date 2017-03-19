@@ -17,6 +17,7 @@ class RatesSpider(scrapy.Spider):
         count = 0
         for rate in rate:
             yield {
-                currency[count]: rate
+                'Currency': currency[count],
+                'Rate': rate
             }
             count += 1
