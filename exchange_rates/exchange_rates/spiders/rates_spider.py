@@ -6,8 +6,7 @@ class RatesSpider(scrapy.Spider):
 
     def start_requests(self):
         urls = [
-            'http://www.x-rates.com/table/?from=EUR&amount=1',
-            'http://www.x-rates.com/table/?from=GBP&amount=1'
+            'http://www.x-rates.com/table/?from=EUR&amount=1'
         ]
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse)
