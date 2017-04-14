@@ -1,8 +1,16 @@
 from subprocess import call
 from glob import glob
 import matplotlib.pyplot as plt
+from time import sleep
 
-call('bash feed_export_script.sh')
+time_remaining = 5
+count = 0
+while count <= 5:
+    call('bash feed_export_script.sh')
+    print('%d minutes remaining...' % time_remaining)
+    sleep(60)
+    time_remaining -= 1
+    count += 1
 
 filenames = glob('*.csv')
 print(filenames)
