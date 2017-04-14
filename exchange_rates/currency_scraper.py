@@ -1,6 +1,6 @@
 from subprocess import call
 from glob import glob
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
 from time import sleep
 
 time_remaining = 5
@@ -9,7 +9,7 @@ while count <= 5:
     call('bash feed_export_script.sh')
     print('%d minutes remaining...' % time_remaining)
     if count < 5:
-        sleep(60)
+        sleep(5)
     time_remaining -= 1
     count += 1
 
@@ -44,3 +44,4 @@ for item in eur_gbp_rates:
     plt.annotate(item, xy=(i, item))
     i += 1
 plt.show()
+call('bash cleanup.sh')
