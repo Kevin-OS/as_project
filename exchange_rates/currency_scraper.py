@@ -8,12 +8,12 @@ count = 0
 while count <= 5:
     call('bash feed_export_script.sh')
     print('%d minutes remaining...' % time_remaining)
-    sleep(60)
+    if count < 5:
+        sleep(60)
     time_remaining -= 1
     count += 1
 
 filenames = glob('*.csv')
-print(filenames)
 
 eur_us_rates = []
 eur_gbp_rates = []
@@ -25,9 +25,22 @@ for file in filenames:
             elif line.startswith('Brit'):
                 eur_gbp_rates.append(float(line.strip().split(',')[1]))
 
+i = 0
 plt.plot(eur_us_rates)
-plt.ylabel('EUR to USD')
+plt.ylabel('Rate')
+plt.xlabel('Minutes')
+plt.title('EUR to USD Exchange Rate')
+for item in eur_us_rates:
+    plt.annotate(item, xy=(i, item))
+    i += 1
 plt.show()
+
+i = 0
 plt.plot(eur_gbp_rates)
-plt.ylabel('EUR to GBP')
+plt.ylabel('Rate')
+plt.xlabel('Minutes')
+plt.title('EUR to GBP Exchange Rate')
+for item in eur_gbp_rates:
+    plt.annotate(item, xy=(i, item))
+    i += 1
 plt.show()
