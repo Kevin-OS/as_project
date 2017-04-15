@@ -9,7 +9,7 @@ while count <= 5:
     call('bash feed_export_script.sh')
     print('%d minutes remaining...' % time_remaining)
     if count < 5:
-        sleep(5)
+        sleep(60)
     time_remaining -= 1
     count += 1
 
